@@ -1,14 +1,14 @@
 .grid {
-    --box-size: 32px;
+    --squares-per-grid: 16;
     display: flex;
     flex-wrap: wrap;
-    max-width: calc(var(--box-size) * 16);
+    max-width: 960px;
 }
 
 .grid__box {
+    flex: 0 0 calc(100% / var(--squares-per-grid));
+    aspect-ratio: 1 / 1;
     outline: 1px solid #636363;
-    width: var(--box-size);
-    height: var(--box-size);
 }
 
 .grid__box:hover {
