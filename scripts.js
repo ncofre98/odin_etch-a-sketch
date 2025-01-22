@@ -1,13 +1,22 @@
 //UI Elements
 const grid = document.getElementById('grid');
 const gridRange = document.getElementById('gridRange');
-let squaresPerSide = 16;
+let squaresPerSide = gridRange.value;
 
-grid.innerHTML = ('<div class="grid__box"></div>'.repeat(squaresPerSide ** 2));
+// Starting size
+updateGridSize(squaresPerSide);
 
 function updateGridSize(squaresPerSide) {
+    let gridBoxes;
+
     grid.style.setProperty('--squares-per-grid', squaresPerSide);
     grid.innerHTML = ('<div class="grid__box"></div>'.repeat(squaresPerSide ** 2));
+    gridBoxes = document.querySelectorAll('.grid__box');
+    setListenersForBoxes(gridBoxes);
+}
+
+function updateBoxBGColor(box) {
+    box.target.style.backgroundColor = '#000';
 }
 
 gridRange.addEventListener('input', () => {
@@ -16,3 +25,10 @@ gridRange.addEventListener('input', () => {
         updateGridSize(squaresPerSide);
     }
 })
+
+function setListenersForBoxes(gridBoxes) {
+    gridBoxes.forEach(box => {
+        box.addEventListener('mouseover', updateBoxBGColor);
+    });    
+}
+
