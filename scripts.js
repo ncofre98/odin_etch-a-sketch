@@ -15,8 +15,19 @@ function updateGridSize(squaresPerSide) {
     setListenersForBoxes(gridBoxes);
 }
 
-function updateBoxBGColor(box) {
-    box.target.style.backgroundColor = '#000';
+// integer between 0 and max(exclusive)
+function getRandomInt(max) {
+    return Math.floor(Math.random() * max);
+}
+
+function getRandomColor(opacity = 1) {
+    const rgba = `rgba(${getRandomInt(256)}, ${getRandomInt(256)}, ${getRandomInt(256)}, ${opacity})`;
+    return rgba;
+}
+
+// box (event) as last element to use it with .bind()
+function updateBoxBGColor(box, color = '#000') {
+    box.target.style.backgroundColor = color;
 }
 
 gridRange.addEventListener('input', () => {
@@ -28,7 +39,7 @@ gridRange.addEventListener('input', () => {
 
 function setListenersForBoxes(gridBoxes) {
     gridBoxes.forEach(box => {
-        box.addEventListener('mouseover', updateBoxBGColor);
+        box.addEventListener('mouseover', (event) => updateBoxBGColor(event, getRandomColor()));
     });    
 }
 
