@@ -1,8 +1,24 @@
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.container {
+    flex: 1;
+    max-width: 85vh;
+}
+
+.grid-range {
+    display: block;
+    text-align: center;
+}
+
+
 .grid {
     --squares-per-grid: 16;
     display: flex;
     flex-wrap: wrap;
-    max-width: 960px;
 }
 
 .grid__box {
