@@ -19,10 +19,10 @@ body {
     --squares-per-grid: 16;
     display: flex;
     flex-wrap: wrap;
+    outline: 1px solid #636363;
 }
 
 .grid__box {
     flex: 0 0 calc(100% / var(--squares-per-grid));
     aspect-ratio: 1 / 1;
-    outline: 1px solid #636363;
 }

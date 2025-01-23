@@ -7,11 +7,13 @@
     <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-    <div class="grid" id="grid"></div>
-    <label for="gridRange">
-        Select the size of your sketchboard!<br>
-        <input type="range" name="gridRange" id="gridRange" min="16" max="64">
-    </label>
+    <div class="container">
+        <label for="gridRange" class="grid-range">
+            Select your grid size!<br>
+            <input type="range" name="gridRange" id="gridRange" min="16" max="64">
+        </label>
+        <div class="grid" id="grid"></div> 
+    </div>
 
     <script src="scripts.js"></script>
 </body>
